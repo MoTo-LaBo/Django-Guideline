@@ -135,3 +135,17 @@ function Based View も class Based viwe も出来るもの（完成された物
 - **project で受けた url はそのまま App に引き継がられない**
 - project で受け取った url は省略（消されてしまう）
   - App urls.py で重複しないように注意する
+# Django で admin 画面の password を忘れた場合
+- Django の shell を起動して、User オブジェクトを直接変更
+### 1. shell 起動
+    python manage.py shell
+### 2. 下記を打ち込む
+    from django.contrib.auth.models import User
+    users = User.objects.all()
+    user = users[0]
+    user
+- user 名が表示される
+### 3. password 変更
+    user.set_password('新たなpassword')
+    user.save()
+- shell から抜け出し、admin 画面で login
