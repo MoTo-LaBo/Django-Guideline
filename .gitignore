@@ -3,3 +3,6 @@ staticfiles
 settings.py
 db.sqlite3
 *.py[co]
+.DS_Store
+newenv
+venv
